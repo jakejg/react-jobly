@@ -1,0 +1,14 @@
+.Card {
+    box-shadow: 0 0 4px 1px #ccc;
+    margin: 15px;
+    background-color: white;
+    padding: 15px;
+}
+
+.Card:hover {
+    box-shadow: 0 0 4px 4px #ccc;
+}
+
+.Card-title {
+    font-weight: bold;
+}

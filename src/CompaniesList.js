@@ -30,8 +30,8 @@ const CompaniesList = () => {
             <Col sm="10" xs="12">
                 <SearchBox filterCompanies={filterCompanies} />
                 {companies.map(
-                ({ name, description, logo }) => 
-                (<CompanyCard name={name} description={description} logo={logo} /> ))}
+                ({ name, description, logo }, idx) => 
+                (<CompanyCard key={idx} name={name} description={description} logo={logo} /> ))}
             </Col>
             <Col sm="1" xs="0"></Col>
             </Row>

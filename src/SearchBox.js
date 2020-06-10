@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import JoblyAPI from './Api';
 
 const SearchBox = ({filterCompanies}) => {
     const [search, setSearch] = useState();

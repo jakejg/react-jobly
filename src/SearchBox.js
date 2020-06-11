@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const SearchBox = ({filterCompanies}) => {
-    const [search, setSearch] = useState();
+const SearchBox = ({filter}) => {
+    const [search, setSearch] = useState('');
 
     const handleChange = (e) => {
         setSearch(e.target.value)
@@ -9,7 +9,7 @@ const SearchBox = ({filterCompanies}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        filterCompanies(search)
+        filter(search)
     }
 
     return (

@@ -9,3 +9,8 @@
 .JobCard-title {
     font-weight: bold;
 }
+
+.JobCard-body {
+    list-style: none;
+    padding: 0px;
+}

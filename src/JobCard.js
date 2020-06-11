@@ -1,7 +1,7 @@
 import React from 'react';
 import './JobCard.css';
 
-const JobCard = ({id, title, salary, equity, state}) => {
+const JobCard = ({ title, salary, equity, state}) => {
  
 
     return (

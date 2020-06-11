@@ -13,9 +13,9 @@ const SearchBox = ({filterCompanies}) => {
     }
 
     return (
-        <div>
+        <div className="Search">
             <form>
-                <input type="text" value={search} onChange={handleChange} />
+                <input className="Search-input" type="text" value={search} onChange={handleChange} />
                 <button onClick={handleSubmit} >Submit</button>
             </form>
         </div>

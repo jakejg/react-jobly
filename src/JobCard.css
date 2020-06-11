@@ -1,0 +1,11 @@
+.JobCard {
+    box-shadow: 0 0 4px 1px #ccc;
+    margin: 15px 0 15px 0;
+    background-color: white;
+    padding: 15px;
+}
+
+
+.JobCard-title {
+    font-weight: bold;
+}

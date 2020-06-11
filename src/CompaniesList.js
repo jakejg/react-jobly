@@ -22,7 +22,7 @@ const CompaniesList = () => {
                 <SearchBox filter={setCompanies} />
                 {companies.map(
                 ({handle, name, description, logo }) => 
-                (<CompanyCard key={handle} name={name} description={description} logo={logo} /> ))}
+                (<CompanyCard key={handle} handle={handle} name={name} description={description} logo={logo} /> ))}
             </Col>
             <Col sm="1" xs="0"></Col>
             </Row>

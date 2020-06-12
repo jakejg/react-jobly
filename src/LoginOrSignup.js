@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './styles/Login.css';
 import { Button } from 'reactstrap';
 import LoginForm from  './LoginForm';
 import SignupForm from './SignupForm';
+import TokenContext from './TokenContext';
 
 
 const LoginOrSignup = () => {
     const [signup, setSignup] = useState(false);
     const [formData, setFormData] = useState({username: "", password:  "", first_name: "", last_name: "", email: ""});
+    const {setToken} = useContext(TokenContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -17,15 +19,12 @@ const LoginOrSignup = () => {
     const handleSubmit = async (e, method) => {
         e.preventDefault();
         let token = await method(formData);
-        localStorage.setItem('token', token);
+        setToken(token)
     }
 
     const changeToSignup = () => setSignup(true);
     
     const changeToLogin = () => setSignup(false);
-
-
-   
 
     return (       
             <div className="box">

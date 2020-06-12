@@ -6,3 +6,14 @@
 .NavBar-item {
     margin: 10px;
 }
+
+.NavBar-link {
+    color:purple;
+}
+.NavBar-link:hover {
+    color:green;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+

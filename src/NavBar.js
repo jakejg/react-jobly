@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
     Collapse,
@@ -10,11 +10,30 @@ import {
 
   } from 'reactstrap';
 import './styles/NavBar.css';
+import TokenContext from './TokenContext'
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
+    const { token, setToken } = useContext(TokenContext);
+
+    const logout = () => setToken('');
+
+    const links = ['Companies', 'Jobs', 'Profile']
+    const loggedInView = <>
+                            {links.map(link=> (
+                                <NavItem className="NavBar-item">
+                                    <NavLink className="NavBar-link" to={`/${link.toLowerCase()}`}>{link}</NavLink>
+                                </NavItem>))}
+                            
+                            <NavItem className="NavBar-item">
+                                <div className="NavBar-link" onClick={logout}>Logout</div>
+                            </NavItem>
+                        </>
+
+    const loggedOutView =   <NavItem className="NavBar-item">
+                                <NavLink to='/login'>Login</NavLink>
+                            </NavItem>
 
     return (
         <div>
@@ -23,22 +42,10 @@ const NavBar = () => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse className='NavBar-collapse' isOpen={isOpen} navbar>
                     <Nav navbar>
-                        <NavItem className="NavBar-item">
-                            <NavLink to='/companies'>Companies</NavLink>
-                        </NavItem>
-                        <NavItem className="NavBar-item">
-                            <NavLink to='/jobs'>Jobs</NavLink>
-                        </NavItem>
-                        <NavItem className="NavBar-item">
-                            <NavLink to='/profile'>Profile</NavLink>
-                        </NavItem>
-                        <NavItem className="NavBar-item">
-                            <NavLink to='/login'>Login</NavLink>
-                        </NavItem>
+                        {token? loggedInView: loggedOutView }
                     </Nav>
                 </Collapse>
             </Navbar>
-           
         </div>
     );
 }

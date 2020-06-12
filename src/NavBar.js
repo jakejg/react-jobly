@@ -1,29 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
     Collapse,
-    Navbar,
     NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText
+    Navbar
+
   } from 'reactstrap';
+import './styles/NavBar.css';
 
 const NavBar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
+
     return (
-        <nav>
-            <NavLink to='/companies'>Companies</NavLink>
-            <NavLink to='/jobs'>Jobs</NavLink>
-            <NavLink to='/profile'>Profile</NavLink>
-            <NavLink to='/login'>Login</NavLink>
-        </nav>
-    )
+        <div>
+            <Navbar className="NavBar" color="light" light expand="sm">
+                <NavbarBrand href="/">Jobly</NavbarBrand>
+                <NavbarToggler onClick={toggle} />
+                <Collapse className='NavBar-collapse' isOpen={isOpen} navbar>
+                    <Nav navbar>
+                        <NavItem className="NavBar-item">
+                            <NavLink to='/companies'>Companies</NavLink>
+                        </NavItem>
+                        <NavItem className="NavBar-item">
+                            <NavLink to='/jobs'>Jobs</NavLink>
+                        </NavItem>
+                        <NavItem className="NavBar-item">
+                            <NavLink to='/profile'>Profile</NavLink>
+                        </NavItem>
+                        <NavItem className="NavBar-item">
+                            <NavLink to='/login'>Login</NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+           
+        </div>
+    );
 }
 
 export default NavBar;

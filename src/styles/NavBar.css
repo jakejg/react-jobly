@@ -1,0 +1,8 @@
+.NavBar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.NavBar-item {
+    margin: 10px;
+}

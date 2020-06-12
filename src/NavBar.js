@@ -15,14 +15,17 @@ import TokenContext from './TokenContext'
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    const { token, setToken } = useContext(TokenContext);
+    const { token, setToken, setUsername } = useContext(TokenContext);
 
-    const logout = () => setToken('');
+    const logout = () => {
+        setToken('');
+        setUsername('');
+    }
 
     const links = ['Companies', 'Jobs', 'Profile']
     const loggedInView = <>
                             {links.map(link=> (
-                                <NavItem className="NavBar-item">
+                                <NavItem key={link} className="NavBar-item">
                                     <NavLink className="NavBar-link" to={`/${link.toLowerCase()}`}>{link}</NavLink>
                                 </NavItem>))}
                             

@@ -1,17 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import JoblyAPI from './Api';
 import JobCard from './JobCard';
 import SearchBox from './SearchBox';
 import { Container, Row, Col } from 'reactstrap';
-import useFilter from './hooks/useFilter'
+import useFilter from './hooks/useFilter';
+import TokenContext from './TokenContext';
+import { Redirect } from 'react-router-dom';
 
 const JobList = () => {
     const [jobs, setJobs] = useFilter(JoblyAPI.getJobs.bind(JoblyAPI));
 
+    const { token } = useContext(TokenContext);
+
     useEffect(() => {
-        setJobs()
+        if (token) setJobs();
     }, [])
 
+    if (!token) {
+        return <Redirect to='/login' />
+    }
 
     return (
         <Container>

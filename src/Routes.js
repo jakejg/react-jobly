@@ -7,7 +7,7 @@ import LoginOrSignup from './LoginOrSignup';
 import Profile from './Profile';
 
 
-const Routes = () => {
+const Routes = ({currUser}) => {
 
     return (
         <Switch >
@@ -24,7 +24,7 @@ const Routes = () => {
                 <LoginOrSignup />
             </Route>
             <Route exact path='/profile'>
-                <Profile />
+                <Profile currUser={currUser}/>
             </Route>
 
         </Switch>

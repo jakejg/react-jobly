@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import JoblyAPI from './Api';
 
 const SignupForm = ({formData, handleChange, handleSubmit}) => {
+
     return(
         <Form >
             <FormGroup>

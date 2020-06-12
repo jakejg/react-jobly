@@ -5,8 +5,8 @@ const useLocalStorage = (item, defaultValues) => {
     const [state, setState] = useState(INITIAL_STATE);
 
     const setLocalStorage = (newItem) => {
-        localStorage.setItem(item, newItem)
-        setState(newItem)
+        localStorage.setItem(item, newItem);
+        setState(state => newItem)
         }
         
 

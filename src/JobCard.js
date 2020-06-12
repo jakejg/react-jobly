@@ -1,5 +1,5 @@
 import React from 'react';
-import './JobCard.css';
+import './styles/JobCard.css';
 
 const JobCard = ({ title, salary, equity, state}) => {
  

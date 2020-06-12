@@ -1,0 +1,28 @@
+.box {
+    width: 300px;
+    margin: 100px auto;
+    
+}
+
+Form {
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 4px 1px #ccc;
+
+}
+
+Form label {
+    font-weight: bold;
+}
+
+#login-btn {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+#signup-btn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}

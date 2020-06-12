@@ -2,7 +2,7 @@ import axios from "axios";
 
 class JoblyAPI {
     static async request(endpoint, paramsOrData = {}, verb= "get") {
-        paramsOrData._token = ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impha2V0ZXN0IiwiaWF0IjoxNTkxODA5MDc0fQ.1OziTWWrYePIcHh8ve1piv4unrNTFodHTFwk_0RMCtk");
+        paramsOrData._token = localStorage.getItem('token')
 
         console.debug("API Call:", endpoint, paramsOrData, verb);
     
@@ -38,6 +38,16 @@ class JoblyAPI {
         let res = await this.request('jobs', {search});
         return res.jobs;
       }
+    
+    static async login(loginData) {
+      let res = await this.request('login', {username: loginData.username, password: loginData.password}, "post");
+      return res.token;
+    }
+
+     static async signup(signupData) {
+      let res = await this.request('users', signupData, "post");
+      return res.token;
+    }
   }
 
 export default JoblyAPI;

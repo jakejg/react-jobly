@@ -3,8 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import CompaniesList from './CompaniesList';
 import CompanyDetail from './CompanyDetail';
 import JobsList from './JobList';
-import Login from './Login';
+import LoginOrSignup from './LoginOrSignup';
 import Profile from './Profile';
+
 
 const Routes = () => {
 
@@ -20,7 +21,7 @@ const Routes = () => {
                 <JobsList />
             </Route>
             <Route exact path='/login'>
-                <Login />
+                <LoginOrSignup />
             </Route>
             <Route exact path='/profile'>
                 <Profile />

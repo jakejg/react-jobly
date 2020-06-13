@@ -8,10 +8,11 @@
 }
 
 .NavBar-link {
-    color:purple;
+    color: green;
+    font-weight: bold;
 }
 .NavBar-link:hover {
-    color:green;
+    color:rgb(1, 160, 1);
     text-decoration: none;
     cursor: pointer;
 }

@@ -3,12 +3,24 @@
     margin: 15px 0 15px 0;
     background-color: white;
     padding: 15px;
+    color: black;
 }
 
 .Card:hover {
     box-shadow: 0 0 4px 4px #ccc;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .Card-title {
     font-weight: bold;
+    
+}
+
+.Card-link {
+    color: black;
+}
+
+.Card-link:hover {
+    text-decoration: none;
 }

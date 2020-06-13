@@ -46,7 +46,7 @@ const LoginOrSignup = ({
             <div className="box">
                 <Button id="login-btn" color="success" onClick={changeToLogin} className={signup? null: "active"}>Login</Button>
                 <Button id="signup-btn" color="success" onClick={changeToSignup} className={signup? "active": null}>Sign Up</Button>
-                <Form>
+                <Form className="LoginOrSignup">
                     {signup? signupFields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />):
                             loginFields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />)}
                     <Button onClick={signup?(e) => handleSubmit(e, JoblyAPI.signup.bind(JoblyAPI)) : (e) => handleSubmit(e, JoblyAPI.login.bind(JoblyAPI))}>Submit</Button>

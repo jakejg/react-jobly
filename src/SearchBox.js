@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Button, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
+import './styles/SearchBox.css';
+
 
 const SearchBox = ({filter}) => {
     const [search, setSearch] = useState('');
@@ -13,11 +16,14 @@ const SearchBox = ({filter}) => {
     }
 
     return (
-        <div className="Search">
-            <form>
-                <input className="Search-input" type="text" value={search} onChange={handleChange} />
-                <button onClick={handleSubmit} >Submit</button>
-            </form>
+        <div className="Search mt-5">
+             <Form >
+                 <InputGroup>
+                    <Input placeholder="Enter a search term" type="text" value={search} onChange={handleChange} />
+                    <Button id="Search-btn" color="primary" onClick={handleSubmit} >Search</Button>
+                </InputGroup>
+                
+            </Form> 
         </div>
     )
 }

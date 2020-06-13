@@ -30,7 +30,7 @@ const NavBar = () => {
                                 </NavItem>))}
                             
                             <NavItem className="NavBar-item">
-                                <div className="NavBar-link" onClick={logout}>Logout</div>
+                                <NavLink className="NavBar-link" to='/login' onClick={logout}>Logout</NavLink>
                             </NavItem>
                         </>
 

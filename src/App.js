@@ -10,7 +10,6 @@ function App() {
     const [token, setToken] = useLocalStorage('token');
     const [username, setUsername ] = useLocalStorage('username');
     const [currUser, setCurrUser ] = useState({});
-    const [errors, setErrors] = useState([]);
     console.log(currUser)
     console.log(token)
 
@@ -27,7 +26,7 @@ function App() {
    
     return (
         <div className="App">
-            <TokenContext.Provider value={{token, setToken, setUsername, errors, setErrors}} >
+            <TokenContext.Provider value={{token, setToken, setUsername}} >
                 <NavBar />
                 <Routes currUser={currUser} setCurrUser={setCurrUser}/>
             </TokenContext.Provider>

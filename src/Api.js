@@ -70,8 +70,13 @@ class JoblyAPI {
     }
 
     static async updateUser(username, userData) {
-      let res = await this.request(`users/${username}`, userData, "patch");
-      return res.user
+      try {
+        let res = await this.request(`users/${username}`, userData, "patch");
+        return res.user
+      }
+      catch(e){
+        return e
+      }
     }
     
   }

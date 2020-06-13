@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import FormGroupComp from './FormGroup';
-import { Button, Form, Label, FormGroup, Input } from 'reactstrap';
+import { Button, Form, Label, FormGroup, Input, Alert } from 'reactstrap';
 import JoblyAPI from './Api';
 
 const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
     const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password:""});
-   
+    const [alerts, setAlerts] = useState({color:"", msg:[]});
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({...formData, [name]: value}));
@@ -14,9 +15,17 @@ const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Ema
     const handleSubmit = async (e) => {
         e.preventDefault();
         let user = await JoblyAPI.updateUser(currUser.username, formData);
-        setCurrUser(currUser => ({...user}))
+        if (Array.isArray(user)){
+            setAlerts({color: "danger", msg: user})
+        }
+        else {
+            setCurrUser(currUser => ({...user}))
+            setAlerts({color: "success", msg:["Updated Successfully!"]})
+        }
         
     }
+
+    const alert = alerts.msg.map(msg => <Alert key={msg} color={alerts.color} className="mt-3" >{msg.replace('instance.', '')}</Alert>);
     
     return (
         <div>
@@ -34,6 +43,7 @@ const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Ema
                     <Input type="text" id="password" name="password" value={formData.password} onChange={handleChange} /> 
                 </FormGroup>    
                     <Button onClick={handleSubmit}>Submit</Button>
+                    {alert}
                 </Form>
             </div>
         </div>

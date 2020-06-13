@@ -12,7 +12,8 @@ const LoginOrSignup = ({
                     }) => {
     const [signup, setSignup] = useState(false);
     const [formData, setFormData] = useState({username: "", password:  "", first_name: "", last_name: "", email: ""});
-    const { setToken, setUsername, errors, setErrors } = useContext(TokenContext);
+    const [errors, setErrors] = useState([]);
+    const { setToken, setUsername} = useContext(TokenContext);
 
     const history = useHistory();
 

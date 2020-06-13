@@ -11,6 +11,7 @@
     color: green;
     font-weight: bold;
 }
+
 .NavBar-link:hover {
     color:rgb(1, 160, 1);
     text-decoration: none;

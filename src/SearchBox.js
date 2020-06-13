@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText } from 'reactstrap';
+import { Button, Form, Input, InputGroup } from 'reactstrap';
 import './styles/SearchBox.css';
 
 

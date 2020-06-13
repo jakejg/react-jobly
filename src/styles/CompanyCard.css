@@ -5,6 +5,12 @@
     padding: 15px;
     color: black;
 }
+.Card-Logo {
+    text-align: right;
+}
+.Card-Logo img {
+    max-width: 100px;
+}
 
 .Card:hover {
     box-shadow: 0 0 4px 4px #ccc;

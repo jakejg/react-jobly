@@ -3,7 +3,7 @@ import './styles/CompanyCard.css';
 import { Link } from 'react-router-dom';
 
 const CompanyCard = ({handle, name, description }) => {
-const logo = "https://i.pinimg.com/236x/95/82/55/9582551d7cd527bc3431130c6104e78b--city-logo-logo-design.jpg"
+const logo = "https://thumbs.dreamstime.com/b/realty-flat-apartment-modern-building-logo-design-graphic-style-realty-flat-apartment-modern-building-logo-design-graphic-style-158041756.jpg"
 
     return (
         <div className="Card">

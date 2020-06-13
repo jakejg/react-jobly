@@ -10,14 +10,14 @@ function App() {
     const [token, setToken] = useLocalStorage('token');
     const [username, setUsername ] = useLocalStorage('username');
     const [currUser, setCurrUser ] = useState({});
+    console.log(currUser)
 
     
     useEffect(() => {
         const getUserData = async () => {
             if (username){
-            let user = await JoblyApi.getUserData(username);
-            console.log(user);
-            setCurrUser(currUser => ({...user}))
+                let user = await JoblyApi.getUserData(username);
+                setCurrUser(currUser => ({...user}))
             }
         }
         getUserData();
@@ -27,7 +27,7 @@ function App() {
         <div className="App">
             <TokenContext.Provider value={{token, setToken, setUsername}} >
                 <NavBar />
-                <Routes currUser={currUser}/>
+                <Routes currUser={currUser} setCurrUser={setCurrUser}/>
             </TokenContext.Provider>
         </div>
     );

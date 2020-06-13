@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import './styles/Login.css';
 import { Button, Form } from 'reactstrap';
-import LoginForm from  './LoginForm';
-import SignupForm from './SignupForm';
 import TokenContext from './TokenContext';
 import FormGroupComp from './FormGroup';
 import JoblyAPI from './Api';

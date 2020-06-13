@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import FormGroupComp from './FormGroup';
-import { Button, Form, Label, FormGroup } from 'reactstrap';
+import { Button, Form, Label, FormGroup, Input } from 'reactstrap';
+import JoblyAPI from './Api';
 
-const Profile = ({currUser, fields=['First Name', 'Last Name', 'Email', 'Photo URl','Re-enter Password']}) => {
-    const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password: ""});
+const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
+    const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password:""});
    
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(formData => ({...formData, [name]: value}))
+        setFormData(formData => ({...formData, [name]: value}));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        let user = await JoblyAPI.updateUser(currUser.username, formData);
+        setCurrUser(currUser => ({...user}))
+        
     }
     
     return (
         <div>
-            <h1>Profile</h1>
+            <h1 className="mt-4 text-center">Profile</h1>
             <div className="box">
                 
                 <Form >
@@ -21,8 +29,11 @@ const Profile = ({currUser, fields=['First Name', 'Last Name', 'Email', 'Photo U
                     <div>{currUser.username}</div>
                 </FormGroup>
                     {fields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />)}
-
-                    <Button >Submit</Button>
+                <FormGroup>
+                    <Label htmlFor="password">Re-enter Password</Label>
+                    <Input type="text" id="password" name="password" value={formData.password} onChange={handleChange} /> 
+                </FormGroup>    
+                    <Button onClick={handleSubmit}>Submit</Button>
                 </Form>
             </div>
         </div>

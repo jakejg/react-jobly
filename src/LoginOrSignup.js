@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import './styles/Login.css';
 import { Button, Form, Alert } from 'reactstrap';
 import TokenContext from './TokenContext';
 import FormGroupComp from './FormGroup';
 import JoblyAPI from './Api';
-
 
 const LoginOrSignup = ({
                         signupFields = ['Username', 'Password','First Name', 'Last Name', 'Email'],
@@ -13,6 +13,8 @@ const LoginOrSignup = ({
     const [signup, setSignup] = useState(false);
     const [formData, setFormData] = useState({username: "", password:  "", first_name: "", last_name: "", email: ""});
     const { setToken, setUsername, errors, setErrors } = useContext(TokenContext);
+
+    const history = useHistory();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,6 +32,7 @@ const LoginOrSignup = ({
         else {
             setToken(token);
             setUsername(formData.username)
+            history.push(`/companies`)
         }
     }
 

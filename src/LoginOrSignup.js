@@ -13,7 +13,7 @@ const LoginOrSignup = ({
     const [signup, setSignup] = useState(false);
     const [formData, setFormData] = useState({username: "", password:  "", first_name: "", last_name: "", email: ""});
     const [errors, setErrors] = useState([]);
-    const { setToken, setUsername} = useContext(TokenContext);
+    const { setTokenData } = useContext(TokenContext);
 
     const history = useHistory();
 
@@ -31,8 +31,7 @@ const LoginOrSignup = ({
             setErrors(token)
         }
         else {
-            setToken(token);
-            setUsername(formData.username)
+            setTokenData({token, username: formData.username});
             history.push(`/companies`)
         }
     }

@@ -15,11 +15,10 @@ import TokenContext from './TokenContext'
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-    const { token, setToken, setUsername } = useContext(TokenContext);
+    const { tokenData, setTokenData } = useContext(TokenContext);
 
     const logout = () => {
-        setToken('');
-        setUsername('');
+        setTokenData({token: "", username: ""});
     }
 
     const links = ['Companies', 'Jobs', 'Profile']
@@ -45,7 +44,7 @@ const NavBar = () => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse className='NavBar-collapse' isOpen={isOpen} navbar>
                     <Nav navbar>
-                        {token? loggedInView: loggedOutView }
+                        {tokenData.token? loggedInView: loggedOutView }
                     </Nav>
                 </Collapse>
             </Navbar>

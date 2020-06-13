@@ -2,7 +2,7 @@ import axios from "axios";
 
 class JoblyAPI {
     static async request(endpoint, paramsOrData = {}, verb= "get") {
-        paramsOrData._token = localStorage.getItem('token');
+        paramsOrData._token = JSON.parse(localStorage.getItem('token')).token;
 
         console.debug("API Call:", endpoint, paramsOrData, verb);
     

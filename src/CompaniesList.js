@@ -11,13 +11,13 @@ import { Redirect } from 'react-router-dom';
 const CompaniesList = () => {
     const [companies, setCompanies] = useFilter(JoblyAPI.getCompanies.bind(JoblyAPI));
     
-    const { token } = useContext(TokenContext);
+    const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
-        if (token) setCompanies();
+        if (tokenData.token) setCompanies();
     }, [])
 
-    if (!token) {
+    if (!tokenData.token) {
         return <Redirect to='/login' />
     }
 

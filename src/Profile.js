@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormGroupComp from './FormGroup';
 import { Button, Form, Label, FormGroup, Input, Alert } from 'reactstrap';
 import JoblyAPI from './Api';
+import './styles/Profile.css'
 
 const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
     const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password:""});
@@ -31,19 +32,18 @@ const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Ema
         <div>
             <h1 className="mt-4 text-center">Profile</h1>
             <div className="box">
-                
-                <Form >
-                <FormGroup>
-                    <Label>Username</Label> 
-                    <div>{currUser.username}</div>
-                </FormGroup>
-                    {fields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />)}
-                <FormGroup>
-                    <Label htmlFor="password">Re-enter Password</Label>
-                    <Input type="text" id="password" name="password" value={formData.password} onChange={handleChange} /> 
-                </FormGroup>    
-                    <Button onClick={handleSubmit}>Submit</Button>
-                    {alert}
+                <Form className="Profile">
+                    <FormGroup>
+                        <Label>Username</Label> 
+                        <div>{currUser.username}</div>
+                    </FormGroup>
+                        {fields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />)}
+                    <FormGroup>
+                        <Label htmlFor="password">Re-enter Password</Label>
+                        <Input type="text" id="password" name="password" value={formData.password} onChange={handleChange} /> 
+                    </FormGroup>    
+                        <Button onClick={handleSubmit}>Submit</Button>
+                        {alert}
                 </Form>
             </div>
         </div>

@@ -1,0 +1,16 @@
+.box {
+    width: 300px;
+    margin: 100px auto;
+    
+}
+
+.Profile {
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 4px 1px #ccc;
+
+}
+
+.Profile label {
+    font-weight: bold;
+}

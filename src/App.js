@@ -10,7 +10,9 @@ function App() {
     const [token, setToken] = useLocalStorage('token');
     const [username, setUsername ] = useLocalStorage('username');
     const [currUser, setCurrUser ] = useState({});
+    const [errors, setErrors] = useState([]);
     console.log(currUser)
+    console.log(token)
 
     
     useEffect(() => {
@@ -25,7 +27,7 @@ function App() {
    
     return (
         <div className="App">
-            <TokenContext.Provider value={{token, setToken, setUsername}} >
+            <TokenContext.Provider value={{token, setToken, setUsername, errors, setErrors}} >
                 <NavBar />
                 <Routes currUser={currUser} setCurrUser={setCurrUser}/>
             </TokenContext.Provider>

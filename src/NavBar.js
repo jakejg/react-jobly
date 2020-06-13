@@ -35,7 +35,7 @@ const NavBar = () => {
                         </>
 
     const loggedOutView =   <NavItem className="NavBar-item">
-                                <NavLink to='/login'>Login</NavLink>
+                                <NavLink className="NavBar-link" to='/login'>Login</NavLink>
                             </NavItem>
 
     return (

@@ -38,15 +38,30 @@ class JoblyAPI {
         let res = await this.request('jobs', {search});
         return res.jobs;
       }
+      
+        
+    
     
     static async login(loginData) {
-      let res = await this.request('login', {username: loginData.username, password: loginData.password}, "post");
-      return res.token;
+      try {
+        let res = await this.request('login', {username: loginData.username, password: loginData.password}, "post");
+        return res.token;
+      }
+      catch(e) {
+        return e
+      }
+
     }
 
     static async signup(signupData) {
-      let res = await this.request('users', signupData, "post");
-      return res.token;
+      try {
+        let res = await this.request('users', signupData, "post");
+        return res.token
+      }
+      catch(e) {
+          return e
+        }
+      
     }
 
     static async getUserData(username) {

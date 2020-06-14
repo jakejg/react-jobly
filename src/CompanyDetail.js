@@ -11,12 +11,15 @@ const CompanyDetail = () => {
     const { tokenData } = useContext(TokenContext);
     const [company, setCompany] = useState({jobs: []});
     const { handle } = useParams()
+    const [errors, setErrors] = useState([]);
+
 
     useEffect(() => {
         const getData = async () => {
             if (tokenData.token) {
-                let data = await JoblyAPI.getCompany(handle)
-                setCompany(data)
+                let companyData = await JoblyAPI.getCompany(handle);
+                if (Array.isArray(companyData)) setErrors(companyData);
+                else setCompany(companyData);
             }
         }
         getData()
@@ -32,7 +35,7 @@ const CompanyDetail = () => {
             <Row>
                 <Col sm="1" xs="0"></Col>
             <Col sm="10" xs="12">
-                <div className="CompanyDetail-title">{company.name}</div>
+                <div className="CompanyDetail-title">{errors.length > 0 ? errors : company.name}</div>
                 <div>{company.description}</div>
                 {company.jobs.map(
                 ({id, title, salary, equity, handle }) => 

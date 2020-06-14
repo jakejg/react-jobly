@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import CompaniesList from './CompaniesList';
 import CompanyDetail from './CompanyDetail';
 import JobsList from './JobList';
@@ -34,6 +34,7 @@ const Routes = () => {
             <Route exact path='/profile/applied'>
                 <AppliedJobs />
             </Route>
+            <Redirect to='/' />
 
         </Switch>
     )

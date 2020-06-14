@@ -5,7 +5,9 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001"
 
 class JoblyAPI {
     static async request(endpoint, paramsOrData = {}, verb= "get") {
-        paramsOrData._token = JSON.parse(localStorage.getItem('token')).token;
+      if (JSON.parse(localStorage.getItem('token'))) {
+          paramsOrData._token = JSON.parse(localStorage.getItem('token')).token;
+        }
 
         console.debug("API Call:", endpoint, paramsOrData, verb);
     

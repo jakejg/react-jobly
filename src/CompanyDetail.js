@@ -22,7 +22,7 @@ const CompanyDetail = () => {
                 else setCompany(companyData);
             }
         }
-        getData()
+        getData();
         
     },[])
 

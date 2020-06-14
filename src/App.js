@@ -9,7 +9,6 @@ import JoblyApi from './Api';
 function App() {
     const [tokenData, setTokenData] = useLocalStorage('token', {token: '', username: ''});
     const [currUser, setCurrUser ] = useState({jobs: []});
-    console.log(currUser)
   
     useEffect(() => {
         const getUserData = async () => {

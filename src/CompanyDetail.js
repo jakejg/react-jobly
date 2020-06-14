@@ -8,10 +8,9 @@ import TokenContext from './TokenContext';
 import { Redirect } from 'react-router-dom';
 
 const CompanyDetail = () => {
+    const { tokenData } = useContext(TokenContext);
     const [company, setCompany] = useState({jobs: []});
     const { handle } = useParams()
-
-    const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
         const getData = async () => {
@@ -21,14 +20,13 @@ const CompanyDetail = () => {
             }
         }
         getData()
+        
     },[])
 
     if (!tokenData.token) {
         return <Redirect to='/login' />
     }
-
-  
-
+    
     return (
         <Container>
             <Row>
@@ -37,8 +35,8 @@ const CompanyDetail = () => {
                 <div className="CompanyDetail-title">{company.name}</div>
                 <div>{company.description}</div>
                 {company.jobs.map(
-                ({id, title, company_handle, salary, equity, state }) => 
-                (<JobCard key={id} title={title} salary={salary} equity={equity}/> ))}
+                ({id, title, salary, equity, handle }) => 
+                (<JobCard key={id} id={id} title={title} salary={salary} equity={equity} company_handle={handle}/> ))}
             </Col>
             <Col sm="1" xs="0"></Col>
             </Row>

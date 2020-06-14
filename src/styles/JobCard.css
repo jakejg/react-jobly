@@ -14,3 +14,7 @@
     list-style: none;
     padding: 0px;
 }
+
+.JobCard-apply-btn {
+    text-align: right;
+}

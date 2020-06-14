@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FormGroupComp from './FormGroup';
 import { Button, Form, Label, FormGroup, Input, Alert } from 'reactstrap';
 import JoblyAPI from './Api';
 import './styles/Profile.css'
-
-const Profile = ({currUser, setCurrUser, fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
+import TokenContext from './TokenContext';
+// currUser, setCurrUser,
+const Profile = ({ fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
     const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password:""});
     const [alerts, setAlerts] = useState({color:"", msg:[]});
 
+    const { currUser, setCurrUser } = useContext(TokenContext);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(formData => ({...formData, [name]: value}));

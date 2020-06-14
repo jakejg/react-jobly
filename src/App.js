@@ -8,7 +8,8 @@ import JoblyApi from './Api';
 
 function App() {
     const [tokenData, setTokenData] = useLocalStorage('token', {token: '', username: ''});
-    const [currUser, setCurrUser ] = useState({});
+    const [currUser, setCurrUser ] = useState({jobs: []});
+    console.log(currUser)
   
     useEffect(() => {
         const getUserData = async () => {
@@ -22,7 +23,7 @@ function App() {
    
     return (
         <div className="App">
-            <TokenContext.Provider value={{tokenData, setTokenData}} >
+            <TokenContext.Provider value={{tokenData, setTokenData, currUser}} >
                 <NavBar />
                 <Routes currUser={currUser} setCurrUser={setCurrUser}/>
             </TokenContext.Provider>

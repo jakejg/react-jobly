@@ -42,7 +42,7 @@ const Profile = ({ fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) =>
                         {fields.map(field=> <FormGroupComp key={field} field={field} formData={formData} handleChange={handleChange} />)}
                     <FormGroup>
                         <Label htmlFor="password">Re-enter Password</Label>
-                        <Input type="text" id="password" name="password" value={formData.password} onChange={handleChange} /> 
+                        <Input type="password" id="password" name="password" value={formData.password} onChange={handleChange} /> 
                     </FormGroup>    
                         <Button onClick={handleSubmit}>Submit</Button>
                         {alert}

@@ -9,7 +9,6 @@ import { Redirect } from 'react-router-dom';
 
 const JobList = () => {
     const [jobs, setJobs] = useFilter(JoblyAPI.getJobs.bind(JoblyAPI));
-
     const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
@@ -27,8 +26,8 @@ const JobList = () => {
             <Col sm="10" xs="12">
                 <SearchBox filter={setJobs} />
                 {jobs.map(
-                ({id, title, company_handle, salary, equity, state }) => 
-                (<JobCard key={id} title={title} salary={salary} equity={equity}/> ))}
+                ({id, title, handle, salary, equity }) => 
+                (<JobCard key={id} id={id} title={title} salary={salary} equity={equity} company_handle={handle}/> ))}
             </Col>
             <Col sm="1" xs="0"></Col>
             </Row>

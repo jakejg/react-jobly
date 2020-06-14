@@ -5,12 +5,16 @@ import CompanyDetail from './CompanyDetail';
 import JobsList from './JobList';
 import LoginOrSignup from './LoginOrSignup';
 import Profile from './Profile';
+import Home from './Home';
 
 
 const Routes = ({currUser, setCurrUser}) => {
 
     return (
         <Switch >
+            <Route exact path='/'>
+                <Home />
+            </Route>
             <Route exact path='/companies'>
                 <CompaniesList />
             </Route>

@@ -34,7 +34,7 @@ const Profile = ({ fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) =>
     return (
         <div>
             <h1 className="mt-4 text-center">Profile</h1>
-            <div className="text-center"><Link  to='/profile/applied'>See jobs you have applied to</Link></div>
+            <div className="text-center"><Link to='/profile/applied'>See jobs you have applied to</Link></div>
             <div className="box">
                 <Form className="Profile">
                     <FormGroup>

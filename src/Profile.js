@@ -4,6 +4,7 @@ import { Button, Form, Label, FormGroup, Input, Alert } from 'reactstrap';
 import JoblyAPI from './Api';
 import './styles/Profile.css'
 import TokenContext from './TokenContext';
+import { Link } from 'react-router-dom';
 // currUser, setCurrUser,
 const Profile = ({ fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) => {
     const [formData, setFormData] = useState({first_name: "", last_name: "", email: "", photo_url: "", password:""});
@@ -33,6 +34,7 @@ const Profile = ({ fields=['First Name', 'Last Name', 'Email', 'Photo URl']}) =>
     return (
         <div>
             <h1 className="mt-4 text-center">Profile</h1>
+            <div className="text-center"><Link  to='/profile/applied'>See jobs you have applied to</Link></div>
             <div className="box">
                 <Form className="Profile">
                     <FormGroup>

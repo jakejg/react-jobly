@@ -6,9 +6,10 @@ import JobsList from './JobList';
 import LoginOrSignup from './LoginOrSignup';
 import Profile from './Profile';
 import Home from './Home';
+import AppliedJobs from './AppliedJobs';
 
 
-const Routes = ({currUser, setCurrUser}) => {
+const Routes = () => {
 
     return (
         <Switch >
@@ -28,7 +29,10 @@ const Routes = ({currUser, setCurrUser}) => {
                 <LoginOrSignup />
             </Route>
             <Route exact path='/profile'>
-                <Profile currUser={currUser} setCurrUser={setCurrUser}/>
+                <Profile />
+            </Route>
+            <Route exact path='/profile/applied'>
+                <AppliedJobs />
             </Route>
 
         </Switch>

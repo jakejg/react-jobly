@@ -12,7 +12,8 @@ const JobList = () => {
     const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
-        if (tokenData) setJobs();
+        setJobs();
+        // eslint-disable-next-line
     }, [])
 
     if (!tokenData) {

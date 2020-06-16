@@ -23,7 +23,7 @@ const CompanyDetail = () => {
             }
         }
         getData();
-        
+        // eslint-disable-next-line
     },[])
 
     if (!tokenData) {

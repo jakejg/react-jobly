@@ -11,7 +11,7 @@ const [applied, setApplied ] = useState(false);
 // Once current user data is recieved from api, check if this job id matches a job id in the currUser's list
 useEffect(() =>{
     if (currUser.jobs.some(job => job.id === id)) setApplied(true);
-}, [currUser])
+}, [currUser, id])
 
 const handleClick = async () => {
     setApplied(applied => !applied);

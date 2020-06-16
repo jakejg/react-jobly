@@ -15,6 +15,7 @@ const CompaniesList = () => {
 
     useEffect(() => {
         if (tokenData) setCompanies();
+        // eslint-disable-next-line
     }, [])
 
     if (!tokenData) {

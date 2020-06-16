@@ -3,6 +3,7 @@ import { FormGroup, Label, Input } from 'reactstrap';
 
 const FormGroupComp = ({field, formData, handleChange, type}) => {
 
+    // eslint-disable-next-line
     const underscoreName = field.toLowerCase().replace(' ', '_');
 
     return (

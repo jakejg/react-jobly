@@ -11,7 +11,7 @@ const Home = () => {
             <div className="Home-container">
                 <h1>Jobly</h1>
                 <p>All the jobs in one, convenient place</p>
-                {tokenData.token ? <div className="Home-welcome">Welcome back!</div> : <Link to='/login' className="btn btn-primary">Log in</Link>}
+                {tokenData ? <div className="Home-welcome">Welcome back!</div> : <Link to='/login' className="btn btn-primary">Log in</Link>}
             </div>
         </div>
     )

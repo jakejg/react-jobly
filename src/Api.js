@@ -20,8 +20,14 @@ class JoblyAPI {
       }
   
       catch(err) {
-        console.error("API Error:", err.response);
-        let message = err.response.data.message;
+        const error = JSON.parse(JSON.stringify(err))
+        let message;
+        if (error.message === "Network Error") message = error.message;
+        else {
+          console.error("API Error:", err.response);
+          message = error.response.data.message;
+        }
+        
         throw Array.isArray(message) ? message : [message];
       }
     }
@@ -38,8 +44,13 @@ class JoblyAPI {
     }
 
     static async getCompanies(search) {
-        let res = await this.request('companies', {search});
-        return res.companies;
+        try {
+          let res = await this.request('companies', {search});
+          return res.companies;
+        }
+        catch (e) {
+          console.log(e)
+        }
       }
 
     static async getJobs(search) {
@@ -48,8 +59,6 @@ class JoblyAPI {
       }
       
         
-    
-    
     static async login(loginData) {
       try {
         let res = await this.request('login', {username: loginData.username, password: loginData.password}, "post");
@@ -73,8 +82,13 @@ class JoblyAPI {
     }
 
     static async getUserData(username) {
-      let res = await this.request(`users/${username}`);
-      return res.user
+      try {
+        let res = await this.request(`users/${username}`);
+        return res.user
+      }
+      catch (e){
+        console.log(e);
+      }
     }
 
     static async updateUser(username, userData) {

@@ -7,7 +7,7 @@ import { Container, Row, Col } from 'reactstrap';
 const AppliedJobs = () => {
     const { tokenData, currUser } = useContext(TokenContext);
 
-    if (!tokenData.token) {
+    if (!tokenData) {
         return <Redirect to='/login' />
     }
 

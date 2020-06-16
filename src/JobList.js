@@ -12,10 +12,10 @@ const JobList = () => {
     const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
-        if (tokenData.token) setJobs();
+        if (tokenData) setJobs();
     }, [])
 
-    if (!tokenData.token) {
+    if (!tokenData) {
         return <Redirect to='/login' />
     }
 

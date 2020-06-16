@@ -14,10 +14,10 @@ const CompaniesList = () => {
     const { tokenData } = useContext(TokenContext);
 
     useEffect(() => {
-        if (tokenData.token) setCompanies();
+        if (tokenData) setCompanies();
     }, [])
 
-    if (!tokenData.token) {
+    if (!tokenData) {
         return <Redirect to='/login' />
     }
 

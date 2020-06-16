@@ -16,7 +16,7 @@ const CompanyDetail = () => {
 
     useEffect(() => {
         const getData = async () => {
-            if (tokenData.token) {
+            if (tokenData) {
                 let companyData = await JoblyAPI.getCompany(handle);
                 if (Array.isArray(companyData)) setErrors(companyData);
                 else setCompany(companyData);
@@ -26,7 +26,7 @@ const CompanyDetail = () => {
         
     },[])
 
-    if (!tokenData.token) {
+    if (!tokenData) {
         return <Redirect to='/login' />
     }
     

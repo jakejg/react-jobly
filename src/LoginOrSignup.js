@@ -31,8 +31,7 @@ const LoginOrSignup = ({
             setErrors(token)
         }
         else {
-            console.log(token)
-            setTokenData({token, username: formData.username});
+            setTokenData(token);
             history.push(`/companies`)
         }
     }

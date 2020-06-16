@@ -20,12 +20,14 @@ class JoblyAPI {
       }
   
       catch(err) {
-        const error = JSON.parse(JSON.stringify(err))
+        const serverError = JSON.parse(JSON.stringify(err))
         let message;
-        if (error.message === "Network Error") message = error.message;
+        if (serverError.message === "Network Error") {
+          message = serverError.message;
+        }
         else {
           console.error("API Error:", err.response);
-          message = error.response.data.message;
+          message = err.response.data.message;
         }
         
         throw Array.isArray(message) ? message : [message];
